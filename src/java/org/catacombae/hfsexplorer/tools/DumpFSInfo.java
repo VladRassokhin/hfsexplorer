@@ -17,35 +17,28 @@
 
 package org.catacombae.hfsexplorer.tools;
 
+import org.catacombae.hfsexplorer.GUIUtil;
+import org.catacombae.io.ReadableFileStream;
+import org.catacombae.io.ReadableRandomAccessStream;
+import org.catacombae.storage.io.ReadableStreamDataLocator;
+import org.catacombae.storage.io.win32.ReadableWin32FileStream;
+import org.catacombae.storage.ps.*;
+import org.catacombae.storage.ps.apm.APMHandler;
+import org.catacombae.storage.ps.apm.types.ApplePartitionMap;
+import org.catacombae.storage.ps.apm.types.DriverDescriptorRecord;
+import org.catacombae.storage.ps.gpt.GPTHandler;
+import org.catacombae.storage.ps.gpt.types.GUIDPartitionTable;
+import org.catacombae.storage.ps.mbr.MBRHandler;
+import org.catacombae.storage.ps.mbr.types.MBRPartitionTable;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.LinkedList;
-import org.catacombae.io.ReadableFileStream;
-import org.catacombae.io.ReadableRandomAccessStream;
-import javax.swing.JOptionPane;
-import org.catacombae.hfsexplorer.GUIUtil;
-import org.catacombae.hfsexplorer.SelectDeviceDialog;
-import org.catacombae.storage.io.ReadableStreamDataLocator;
-import org.catacombae.storage.ps.apm.types.ApplePartitionMap;
-import org.catacombae.storage.ps.gpt.types.GUIDPartitionTable;
-import org.catacombae.storage.ps.mbr.types.MBRPartitionTable;
-import org.catacombae.storage.io.win32.ReadableWin32FileStream;
-import org.catacombae.storage.ps.Partition;
-import org.catacombae.storage.ps.PartitionSystemDetector;
-import org.catacombae.storage.ps.PartitionSystemHandler;
-import org.catacombae.storage.ps.PartitionSystemHandlerFactory;
-import org.catacombae.storage.ps.PartitionSystemType;
-import org.catacombae.storage.ps.PartitionType;
-import org.catacombae.storage.ps.apm.APMHandler;
-import org.catacombae.storage.ps.apm.types.DriverDescriptorRecord;
-import org.catacombae.storage.ps.gpt.GPTHandler;
-import org.catacombae.storage.ps.mbr.MBRHandler;
 
 public class DumpFSInfo {
 
     public static void main(String[] args) throws Throwable {
         try {
-            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         /*
          * Description of look&feels:
          *   http://java.sun.com/docs/books/tutorial/uiswing/misc/plaf.html
@@ -74,25 +67,6 @@ public class DumpFSInfo {
             }
             else {
                 fsFile = new ReadableFileStream(args[0]);
-            }
-        }
-        else if(SelectDeviceDialog.isSystemSupported()) {
-            if(args.length == 0) {
-                SelectDeviceDialog swdd =
-                        SelectDeviceDialog.createSelectDeviceDialog(null, true,
-                        "Select device to extract info from");
-                swdd.setVisible(true);
-                fsFile = swdd.getPartitionStream();
-                if(fsFile == null)
-                    System.exit(0);
-            }
-            else {
-                System.out.println("Usage: java DumpFSInfo <filename>");
-                System.out.println("        for reading directly from a specified file, or...");
-                System.out.println("       java DumpFSInfo");
-                System.out.println("        to pop up a device dialog where " +
-                        "you can choose which device to read");
-                return;
             }
         }
         else {
@@ -210,11 +184,7 @@ public class DumpFSInfo {
                         break;
                     }
                 }
-                selectedValue = JOptionPane.showInputDialog(null,
-                        "Select which partition to read",
-                        "Choose " + detectedType.getLongName() + " partition",
-                        JOptionPane.QUESTION_MESSAGE,
-                        null, partitions, partitions[firstPreferredPartition]);
+                selectedValue = null;
                 for(int i = 0; i < partitions.length; ++i) {
                     if(partitions[i] == selectedValue) {
                         partNum = i;
@@ -272,7 +242,7 @@ public class DumpFSInfo {
         for(File f : generatedFiles)
             sb.append(f.toString() + "\n    ");
 
-        JOptionPane.showMessageDialog(null, sb.toString(), "Result", JOptionPane.INFORMATION_MESSAGE);
+        System.out.println("Result: " + sb.toString());
 
     }
 
