@@ -191,7 +191,7 @@ public class ExtentsOverflowFile
         }
         else {
             //System.err.println("Reading overflow extent for file " + fileID.toString());
-            LinkedList<CommonHFSExtentDescriptor> resultList = new LinkedList<CommonHFSExtentDescriptor>();
+            LinkedList<CommonHFSExtentDescriptor> resultList = new LinkedList<>();
             for(CommonHFSExtentDescriptor descriptor : forkData.getBasicExtents())
                 resultList.add(descriptor);
             long totalBlockCount = basicExtentsBlockCount;
@@ -254,7 +254,7 @@ public class ExtentsOverflowFile
 
     protected CommonHFSExtentDescriptor[] getAllExtentDescriptors(
             CommonHFSExtentDescriptor[] descriptors) {
-        LinkedList<CommonHFSExtentDescriptor> descTmp = new LinkedList<CommonHFSExtentDescriptor>();
+        LinkedList<CommonHFSExtentDescriptor> descTmp = new LinkedList<>();
         for(CommonHFSExtentDescriptor desc : descriptors) {
             if(desc.getStartBlock() == 0 && desc.getBlockCount() == 0) {
                 break;

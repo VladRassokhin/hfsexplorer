@@ -42,7 +42,7 @@ public class MkAPM {
         Integer blockSize = null;
         //Long deviceBlockCount = null;
         final LinkedList<PartitionSpec> partitions =
-                new LinkedList<PartitionSpec>();
+                new LinkedList<>();
         RandomAccessFile file = null;
     }
 
@@ -215,7 +215,7 @@ public class MkAPM {
 
         DriverDescriptorRecord ddr = new DriverDescriptorRecord(
                 options.blockSize, deviceBlockCount);
-        LinkedList<APMPartition> partitions = new LinkedList<APMPartition>();
+        LinkedList<APMPartition> partitions = new LinkedList<>();
 
         /* First partition always describes the partition map itself. */
         partitions.add(new APMPartition(2, 1, 15, "Apple",

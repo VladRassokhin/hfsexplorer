@@ -74,7 +74,7 @@ public class DumpFSInfo {
             return;
         }
 
-        LinkedList<File> generatedFiles = new LinkedList<File>();
+        LinkedList<File> generatedFiles = new LinkedList<>();
         long fsOffset, fsLength;
         int partNum = -1;
 

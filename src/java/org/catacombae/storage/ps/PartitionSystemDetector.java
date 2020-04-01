@@ -94,7 +94,7 @@ public class PartitionSystemDetector {
     {
 
         LinkedList<PartitionSystemType> rawResult =
-                new LinkedList<PartitionSystemType>();
+                new LinkedList<>();
 
         for(PartitionSystemType type : PartitionSystemType.values()) {
             if(!type.isTopLevelCapable()) {
@@ -116,7 +116,7 @@ public class PartitionSystemDetector {
             result = rawResult;
         }
         else {
-            result = new LinkedList<PartitionSystemType>();
+            result = new LinkedList<>();
 
             for(PartitionSystemType type : rawResult) {
                 boolean isOverridden = false;

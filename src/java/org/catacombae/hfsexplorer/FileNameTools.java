@@ -201,7 +201,7 @@ public class FileNameTools {
     }
 
     private static HashSet<String> buildReservedWindowsFilenames() {
-        HashSet<String> result = new HashSet<String>();
+        HashSet<String> result = new HashSet<>();
         /*
          * <http://threebit.net/mail-archive/carbon-dev/msg01314.html>
          *

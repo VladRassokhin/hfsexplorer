@@ -146,7 +146,7 @@ public class HFSCommonAttributeFork implements FSFork {
                     (HFSPlusAttributesForkData) firstRecordData;
 
             LinkedList<CommonHFSExtentDescriptor> allExtents =
-                    new LinkedList<CommonHFSExtentDescriptor>();
+                    new LinkedList<>();
             HFSPlusExtentRecord curRecord =
                     attributesForkData.getTheFork().getExtents();
             int i = 0;

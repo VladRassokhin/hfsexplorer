@@ -26,7 +26,7 @@ import java.util.HashMap;
 public class SimpleDictionaryParser {
     private static final String SPD_HEADER = "!SimpleDictionary";
     private HashMap<String, String> dictionaryTable =
-            new HashMap<String, String>();
+			new HashMap<>();
 
     public SimpleDictionaryParser(InputStream is) {
 	try {

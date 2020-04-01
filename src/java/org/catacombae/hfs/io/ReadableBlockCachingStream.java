@@ -54,7 +54,7 @@ public class ReadableBlockCachingStream extends ReadableFilterStream {
 	accessed will get an entry here, which leads to uncontrollable memory allocation up to
 	a maximum of length()/blockSize entries. TODO: Think out a smarter solution with a space
 	limited data structure. */
-    private final HashMap<Long, BlockStore> blockMap = new HashMap<Long, BlockStore>();
+    private final HashMap<Long, BlockStore> blockMap = new HashMap<>();
 
     /** Holds the cache items. One entry in the array is reserved for the previously read block,
 	regardless of its access count, so that subsequent sequential reads won't suffer if

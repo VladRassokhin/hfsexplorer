@@ -174,9 +174,9 @@ public abstract class FileSystemHandlerFactory {
 
     public class Attributes {
         private final Map<StandardAttribute, Object> standardCreateAttributeMap =
-                new HashMap<StandardAttribute, Object>();
+                new HashMap<>();
         private final Map<CustomAttribute, Object> customCreateAttributeMap =
-                new HashMap<CustomAttribute, Object>();
+                new HashMap<>();
 
         private Attributes(StandardAttribute[] iSupportedStandardAttributes,
                 CustomAttribute[] iSupportedCustomAttributes) {

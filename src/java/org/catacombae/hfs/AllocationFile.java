@@ -118,7 +118,7 @@ public abstract class AllocationFile {
         long usedBlockCount = 0;
         //int blockValue = (usedBlocks?0x1:0x0);
         if(stop == null)
-            stop = new ObjectContainer<Boolean>(false);
+            stop = new ObjectContainer<>(false);
 
         //System.err.println("countBlocks(): totalBlocks=" + totalBlocks);
         //System.err.println("countBlocks(): allocationFileStream.length()=" + allocationFileStream.length());
@@ -206,7 +206,7 @@ public abstract class AllocationFile {
         ByteRegion closestMatchAbove = new ByteRegion();
         ByteRegion closestMatchBelow = new ByteRegion();
         LinkedList<ByteRegion> allocations =
-                new LinkedList<ByteRegion>();
+                new LinkedList<>();
 
         while(blocksLeft > 0) {
             if(closestMatchAbove == null)

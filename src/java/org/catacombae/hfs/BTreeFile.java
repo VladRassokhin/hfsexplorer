@@ -146,7 +146,7 @@ public abstract class BTreeFile<K extends CommonBTKey<K>,
             CommonBTKeyedNode<R> keyedNode, K minKeyInclusive,
             K maxKeyExclusive, boolean strict)
     {
-	final LinkedList<R> result = new LinkedList<R>();
+	final LinkedList<R> result = new LinkedList<>();
 
         findLEKeys(keyedNode, minKeyInclusive, maxKeyExclusive, strict, result);
 

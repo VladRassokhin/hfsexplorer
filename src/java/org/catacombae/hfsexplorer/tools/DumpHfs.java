@@ -124,7 +124,7 @@ public class DumpHfs {
                 volumeHeader.getAllocationBlockStart();
         final long allocationBlockCount =
                 volumeHeader.getTotalBlocks();
-        SortedSet<Long> inUseSectors = new TreeSet<Long>();
+        SortedSet<Long> inUseSectors = new TreeSet<>();
         final ReadableRandomAccessStream fsStream = vol.createFSStream();
         final byte[] buffer = new byte[sectorSize];
 
@@ -192,20 +192,20 @@ public class DumpHfs {
 
         /* Now proceed to gather the allocations connected to system files. */
         final LinkedList<Pair<CommonHFSForkData, ReservedID>> metadataForks =
-            new LinkedList<Pair<CommonHFSForkData, ReservedID>>();
-        metadataForks.add(new Pair<CommonHFSForkData, ReservedID>(
-                    volumeHeader.getCatalogFile(), ReservedID.CATALOG_FILE));
-        metadataForks.add(new Pair<CommonHFSForkData, ReservedID>(
-                    volumeHeader.getExtentsOverflowFile(),
-                    ReservedID.EXTENTS_FILE));
-        metadataForks.add(new Pair<CommonHFSForkData, ReservedID>(
-                    volumeHeader.getAllocationFile(),
-                    ReservedID.ALLOCATION_FILE));
-        metadataForks.add(new Pair<CommonHFSForkData, ReservedID>(
-                    volumeHeader.getAttributesFile(),
-                    ReservedID.ATTRIBUTES_FILE));
-        metadataForks.add(new Pair<CommonHFSForkData, ReservedID>(
-                    volumeHeader.getStartupFile(), ReservedID.STARTUP_FILE));
+                new LinkedList<>();
+        metadataForks.add(new Pair<>(
+                volumeHeader.getCatalogFile(), ReservedID.CATALOG_FILE));
+        metadataForks.add(new Pair<>(
+                volumeHeader.getExtentsOverflowFile(),
+                ReservedID.EXTENTS_FILE));
+        metadataForks.add(new Pair<>(
+                volumeHeader.getAllocationFile(),
+                ReservedID.ALLOCATION_FILE));
+        metadataForks.add(new Pair<>(
+                volumeHeader.getAttributesFile(),
+                ReservedID.ATTRIBUTES_FILE));
+        metadataForks.add(new Pair<>(
+                volumeHeader.getStartupFile(), ReservedID.STARTUP_FILE));
 
         for(Pair<CommonHFSForkData, ReservedID> curFork : metadataForks) {
             final CommonHFSForkData curForkData = curFork.getA();

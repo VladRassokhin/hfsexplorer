@@ -136,7 +136,7 @@ public enum GPTPartitionType {
 
     private static void addReverseLookupReference(LongBuffer lb, GPTPartitionType t) {
         if(reverseLookupTable == null)
-            reverseLookupTable = new HashMap<LongBuffer, GPTPartitionType>();
+            reverseLookupTable = new HashMap<>();
         reverseLookupTable.put(lb, t);
     }
 

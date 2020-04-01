@@ -34,7 +34,7 @@ public enum ContainerType {
     LINUX_NATIVE;
 
     private LinkedList<Class<? extends ContainerHandlerFactory>> factoryClasses =
-            new LinkedList<Class<? extends ContainerHandlerFactory>>();
+            new LinkedList<>();
 
     private ContainerType() {}
 
@@ -59,7 +59,7 @@ public enum ContainerType {
      * @return all registered factory classes for this type.
      */
     public List<Class<? extends ContainerHandlerFactory>> getFactoryClasses() {
-        return new ArrayList<Class<? extends ContainerHandlerFactory>>(factoryClasses);
+        return new ArrayList<>(factoryClasses);
     }
 
     /**

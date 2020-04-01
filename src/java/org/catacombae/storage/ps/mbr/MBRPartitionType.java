@@ -102,7 +102,7 @@ public enum MBRPartitionType {
 
     private static void addReverseLookupReference(byte b, MBRPartitionType t) {
         if(reverseLookupTable == null)
-            reverseLookupTable = new HashMap<Byte,MBRPartitionType>();
+            reverseLookupTable = new HashMap<>();
         reverseLookupTable.put(b, t);
     }
 

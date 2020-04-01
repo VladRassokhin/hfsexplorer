@@ -225,7 +225,7 @@ public class AppleSingleBuilder {
     private final AppleSingleVersion version;
     private final FileSystem homeFileSystem;
     private final LinkedList<Pair<EntryType, AppleSingleEntry>> entryList =
-            new LinkedList<Pair<EntryType, AppleSingleEntry>>();
+            new LinkedList<>();
 
     public AppleSingleBuilder(FileType fileType, AppleSingleVersion version, FileSystem homeFileSystem) {
         if(fileType == null)
@@ -240,17 +240,17 @@ public class AppleSingleBuilder {
     }
 
     public void addDataFork(byte[] resourceForkData) {
-        entryList.add(new Pair<EntryType, AppleSingleEntry>(EntryType.DATA_FORK,
+        entryList.add(new Pair<>(EntryType.DATA_FORK,
                 new RawDataEntry(resourceForkData)));
     }
 
     public void addResourceFork(byte[] resourceForkData) {
-        entryList.add(new Pair<EntryType, AppleSingleEntry>(
+        entryList.add(new Pair<>(
                 EntryType.RESOURCE_FORK, new RawDataEntry(resourceForkData)));
     }
 
     public void addEmptyResourceFork() {
-        entryList.add(new Pair<EntryType, AppleSingleEntry>(
+        entryList.add(new Pair<>(
                 EntryType.RESOURCE_FORK,
                 new RawDataEntry(EMPTY_RESOURCE_FORK)));
     }
@@ -265,7 +265,7 @@ public class AppleSingleBuilder {
         }
 
         ArrayList<Pair<byte[], byte[]>> attributeDataList =
-                new ArrayList<Pair<byte[], byte[]>>(
+                new ArrayList<>(
                         extendedAttributeList.size());
 
         for(Pair<String, byte[]> extendedAttributePair : extendedAttributeList)
@@ -293,12 +293,12 @@ public class AppleSingleBuilder {
                         attributeData.length + ").");
             }
 
-            attributeDataList.add(new Pair<byte[], byte[]>(attributeNameUtf8,
+            attributeDataList.add(new Pair<>(attributeNameUtf8,
                     extendedAttributePair.getB()));
 
         }
 
-        entryList.add(new Pair<EntryType, AppleSingleEntry>(
+        entryList.add(new Pair<>(
                 EntryType.FINDER_INFO,
                 new FinderInfoEntry(finderInfoData, attributeDataList)));
     }

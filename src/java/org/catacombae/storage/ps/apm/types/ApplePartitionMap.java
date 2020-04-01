@@ -33,7 +33,7 @@ public class ApplePartitionMap implements PartitionSystem {
         byte[] currentBlock =
         //        new byte[512];
                 new byte[blockSize];
-        ArrayList<APMPartition> partitionList = new ArrayList<APMPartition>();
+        ArrayList<APMPartition> partitionList = new ArrayList<>();
 
         // Redundant fields
         Short pmSig = null;

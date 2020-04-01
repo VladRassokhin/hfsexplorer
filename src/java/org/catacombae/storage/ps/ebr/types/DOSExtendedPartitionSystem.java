@@ -36,7 +36,7 @@ public class DOSExtendedPartitionSystem implements PartitionSystem {
         // System.err.println("  extendedPartitionOffset=" + extendedPartitionOffset);
         // System.err.println("  extendedPartitionLength=" + extendedPartitionLength);
         // System.err.println("  sectorSize=" + sectorSize);
-        LinkedList<ExtendedBootRecord> recordList = new LinkedList<ExtendedBootRecord>();
+        LinkedList<ExtendedBootRecord> recordList = new LinkedList<>();
         byte[] block = new byte[sectorSize];
         long seekLocation = extendedPartitionOffset;
         if(seekLocation > extendedPartitionOffset + extendedPartitionLength)

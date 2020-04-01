@@ -99,7 +99,7 @@ public abstract class CommonBTNode <R extends CommonBTRecord>
             for(int i = 0; i < offsets.length; ++i) {
                 offsets[i] = Util.readShortBE(data, offset+nodeSize-((i+1)*2));
             }
-            ArrayList<R> tmpRecords = new ArrayList<R>(offsets.length-1);
+            ArrayList<R> tmpRecords = new ArrayList<>(offsets.length - 1);
             for(int i = 0; i < offsets.length-1; ++i) {
                 int len = offsets[i+1] - offsets[i];
                 tmpRecords.add(createBTRecord(i, data, offset+offsets[i], len));

@@ -145,7 +145,7 @@ public abstract class FileSystemHandler {
 
         int i = 0;
         //FSEntry curEntry;
-        LinkedList<String> pathStack = new LinkedList<String>();
+        LinkedList<String> pathStack = new LinkedList<>();
         LinkedList<String[]> visitedLinks = null;
 
         // If we encounter a '/' as the first character, we have an absolute path
@@ -177,7 +177,7 @@ public abstract class FileSystemHandler {
                 //log(prefix + "  gtpfpp: It was a link!");
                 // Resolve links.
                 if(visitedLinks == null)
-                    visitedLinks = new LinkedList<String[]>();
+                    visitedLinks = new LinkedList<>();
                 else
                     visitedLinks.clear();
 
@@ -252,7 +252,7 @@ public abstract class FileSystemHandler {
     }
 
     public FSEntry resolveLinks(String[] linkPath, FSLink link) {
-        return resolveLinks(linkPath, link, new LinkedList<String[]>());
+        return resolveLinks(linkPath, link, new LinkedList<>());
     }
 
     private FSEntry resolveLinks(String[] curPath, FSLink curLink, LinkedList<String[]> visitedLinks) {

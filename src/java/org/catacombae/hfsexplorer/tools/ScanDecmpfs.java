@@ -112,7 +112,7 @@ public class ScanDecmpfs {
         final AttributesFile attributesFile =
                 fsHandler.getFSView().getAttributesFile();
 
-        LinkedList<Long> nodeQueue = new LinkedList<Long>();
+        LinkedList<Long> nodeQueue = new LinkedList<>();
         nodeQueue.addLast(attributesFile.getRootNodeNumber());
 
         /* Depth-first search for "com.apple.decmpfs" attribute records. */

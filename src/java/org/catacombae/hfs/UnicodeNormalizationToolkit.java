@@ -126,7 +126,7 @@ public class UnicodeNormalizationToolkit {
     private static long nextID = 0;
     private static class TrieNode {
 	private final HashMap<Character, TrieNode> childNodes =
-                new HashMap<Character, TrieNode>();
+			new HashMap<>();
 	private char[] replacementSequence = null;
 	private char trig;
 	private long id;
@@ -155,7 +155,7 @@ public class UnicodeNormalizationToolkit {
     }
 
     private UnicodeNormalizationToolkit() {
-	this(new HashMap<Character, char[]>());
+	this(new HashMap<>());
     }
     /** This method can be used in order to tune which Map implementation is used (default is HashMap). */
     private UnicodeNormalizationToolkit(Map<Character, char[]> decompositionTable) {
@@ -253,7 +253,7 @@ public class UnicodeNormalizationToolkit {
     public String compose(String decomposedString) {
 	//System.err.println("compose");
 	StringBuilder sb = new StringBuilder();
-	LinkedList<TrieNode> matchSequence = new LinkedList<TrieNode>();
+	LinkedList<TrieNode> matchSequence = new LinkedList<>();
 	for(int i = 0; i < decomposedString.length(); ++i) {
 	    //System.err.println("i = " + i);
 	    char[] replacementSequence = null;

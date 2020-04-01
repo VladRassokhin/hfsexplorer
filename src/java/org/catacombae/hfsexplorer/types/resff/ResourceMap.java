@@ -116,7 +116,7 @@ public class ResourceMap implements PrintableStruct {
         int numberOfRefListEntries = 0;
         {
             byte[] curListEntryData = new byte[ReferenceListEntry.length()];
-            referenceList = new ArrayList<Pair<ResourceType, ReferenceListEntry[]>>(resourceTypeList.length);
+            referenceList = new ArrayList<>(resourceTypeList.length);
             for(int i = 0; i < resourceTypeList.length; ++i) {
                 ResourceType curType = resourceTypeList[i];
                 if(DEBUG) {
@@ -139,12 +139,12 @@ public class ResourceMap implements PrintableStruct {
                 }
 
                 numberOfRefListEntries += curList.length;
-                referenceList.add(new Pair<ResourceType, ReferenceListEntry[]>(curType, curList));
+                referenceList.add(new Pair<>(curType, curList));
             }
         }
 
         {
-            resourceNameList = new ArrayList<Pair<ReferenceListEntry, ResourceName>>(numberOfRefListEntries);
+            resourceNameList = new ArrayList<>(numberOfRefListEntries);
 
             for(Pair<ResourceType, ReferenceListEntry[]> p : referenceList) {
                 for(ReferenceListEntry e : p.getB()) {
@@ -152,7 +152,7 @@ public class ResourceMap implements PrintableStruct {
                     if(resNameOffset != -1) {
                         long nameOffset = offset + resourceNameListOffset + resNameOffset;
                         ResourceName resName = new ResourceName(stream, nameOffset);
-                        resourceNameList.add(new Pair<ReferenceListEntry, ResourceName>(e, resName));
+                        resourceNameList.add(new Pair<>(e, resName));
 
                         if(DEBUG) {
                             System.err.println("Read ResourceName:");
@@ -208,10 +208,10 @@ public class ResourceMap implements PrintableStruct {
     }
 
     public List<Pair<ResourceType, ReferenceListEntry[]>> getReferenceList() {
-        return new ArrayList<Pair<ResourceType, ReferenceListEntry[]>>(referenceList);
+        return new ArrayList<>(referenceList);
     }
     public List<Pair<ReferenceListEntry, ResourceName>> getResourceNameList() {
-        return new ArrayList<Pair<ReferenceListEntry, ResourceName>>(resourceNameList);
+        return new ArrayList<>(resourceNameList);
     }
 
     /**

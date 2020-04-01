@@ -215,7 +215,7 @@ public class GUIDPartitionTable implements PartitionSystem, StructElements {
     }
 
     public GPTEntry[] getUsedEntries() {
-        final LinkedList<GPTEntry> tempList = new LinkedList<GPTEntry>();
+        final LinkedList<GPTEntry> tempList = new LinkedList<>();
         for(GPTEntry ge : entries) {
             if(ge.isUsed())
                 tempList.addLast(ge);

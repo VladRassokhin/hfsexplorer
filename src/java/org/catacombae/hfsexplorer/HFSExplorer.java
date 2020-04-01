@@ -86,7 +86,7 @@ public class HFSExplorer {
 	TEST,
 	SYSTEMFILEINFO;
 
-	private final LinkedList<String> argsList = new LinkedList<String>();
+	private final LinkedList<String> argsList = new LinkedList<>();
 	public void addArg(String argument) {
 	    argsList.add(argument);
 	}
@@ -128,7 +128,7 @@ public class HFSExplorer {
 	    byte[] currentBlock = new byte[512];
 	    byte[] signature = new byte[2];
 	    //APMPartition p = new APMPartition(isoRaf);
-	    ArrayList<APMPartition> partitions = new ArrayList<APMPartition>();
+	    ArrayList<APMPartition> partitions = new ArrayList<>();
 	    for(int i = 0; i < 20; ++i) {
 		isoRaf.readFully(currentBlock);
 		signature[0] = currentBlock[0];
@@ -428,9 +428,9 @@ public class HFSExplorer {
 	CommonHFSCatalogLeafRecord rootRecord = fsView.getCatalogFile().getRootFolder();
 	CommonHFSCatalogLeafRecord currentDir = rootRecord;
 	//HFSCatalogNodeID = new HFSCatalogNodeID(1); //rootRecord.getFolderID();
-	LinkedList<String> pathStack = new LinkedList<String>();
+	LinkedList<String> pathStack = new LinkedList<>();
 	LinkedList<CommonHFSCatalogLeafRecord> pathThread =
-                new LinkedList<CommonHFSCatalogLeafRecord>();
+			new LinkedList<>();
 	pathStack.addLast("");
 
 	while(true) {
@@ -729,7 +729,7 @@ public class HFSExplorer {
 	println("Gathering information about the files on the volume...");
 	final int numberOfFilesToDisplay = 10;
 	ArrayList<Pair<CommonHFSCatalogLeafRecord, Integer>> mostFragmentedList =
-                new ArrayList<Pair<CommonHFSCatalogLeafRecord, Integer>>(numberOfFilesToDisplay+1);
+			new ArrayList<>(numberOfFilesToDisplay + 1);
 
 	/*
 	 * This is the deal:
@@ -807,7 +807,7 @@ public class HFSExplorer {
                         fsView.getExtentsOverflowFile().
                         getAllDataExtentDescriptors(rec);
 
-		mostFragmentedList.add(new Pair<CommonHFSCatalogLeafRecord, Integer>(rec, descs.length));
+		mostFragmentedList.add(new Pair<>(rec, descs.length));
 
 		// Let the new item bubble up to its position in the list
 		for(int i = mostFragmentedList.size()-1; i > 0; --i) {

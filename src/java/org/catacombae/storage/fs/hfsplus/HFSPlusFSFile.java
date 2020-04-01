@@ -59,7 +59,7 @@ public class HFSPlusFSFile extends HFSCommonFSFile {
 
     @Override
     protected void fillAttributeForks(List<FSFork> forkList) {
-        LinkedList<FSFork> attributeForkList = new LinkedList<FSFork>();
+        LinkedList<FSFork> attributeForkList = new LinkedList<>();
         super.fillAttributeForks(attributeForkList);
 
         final boolean isCompressed =
@@ -92,7 +92,7 @@ public class HFSPlusFSFile extends HFSCommonFSFile {
                 dataFork = super.getDataFork();
             }
             else {
-                LinkedList<FSFork> attributeForkList = new LinkedList<FSFork>();
+                LinkedList<FSFork> attributeForkList = new LinkedList<>();
 
                 /* Note: Need to call super's implementation because this class
                  *       overrides fillAttributeForks to call back into

@@ -289,7 +289,7 @@ public class CatalogFile
         if(leaf == null)
             throw new IllegalArgumentException("argument \"leaf\" must not be null!");
 
-	LinkedList<CommonHFSCatalogLeafRecord> pathList = new LinkedList<CommonHFSCatalogLeafRecord>();
+	LinkedList<CommonHFSCatalogLeafRecord> pathList = new LinkedList<>();
 	pathList.addLast(leaf);
 	CommonHFSCatalogNodeID parentID = leaf.getKey().getParentID();
 	while(!parentID.equals(parentID.getReservedID(ReservedID.ROOT_PARENT))) {
@@ -377,7 +377,7 @@ public class CatalogFile
 	    //System.out.println("Matching records: " + matchingRecords.length);
 
 	    LinkedList<CommonHFSCatalogLeafRecord> results =
-                    new LinkedList<CommonHFSCatalogLeafRecord>();
+                new LinkedList<>();
 
 	    for(CommonBTIndexRecord bir : matchingRecords) {
 		CommonHFSCatalogLeafRecord[] partResult =
@@ -417,7 +417,7 @@ public class CatalogFile
 
     private static CommonHFSCatalogLeafRecord[] getChildrenTo(CommonHFSCatalogLeafNode leafNode,
             CommonHFSCatalogNodeID nodeID) {
-	LinkedList<CommonHFSCatalogLeafRecord> children = new LinkedList<CommonHFSCatalogLeafRecord>();
+	LinkedList<CommonHFSCatalogLeafRecord> children = new LinkedList<>();
 	CommonHFSCatalogLeafRecord[] records = leafNode.getLeafRecords();
 	for(int i = 0; i < records.length; ++i) {
 	    CommonHFSCatalogLeafRecord curRec = records[i];

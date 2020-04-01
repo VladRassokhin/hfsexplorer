@@ -58,7 +58,7 @@ public abstract class HFSCommonFSEntry extends BasicFSEntry {
 
     protected synchronized void fillAttributeForks(List<FSFork> forkList) {
         if(attributeForkList == null) {
-            LinkedList<FSFork> tmpAttributeForkList = new LinkedList<FSFork>();
+            LinkedList<FSFork> tmpAttributeForkList = new LinkedList<>();
 
             AttributesFile attributesFile =
                     fsHandler.getFSView().getAttributesFile();
@@ -66,8 +66,7 @@ public abstract class HFSCommonFSEntry extends BasicFSEntry {
                 LinkedList<Pair<char[],
                         LinkedList<CommonHFSAttributesLeafRecord>>>
                         attributeBucketList =
-                        new LinkedList<Pair<char[],
-                        LinkedList<CommonHFSAttributesLeafRecord>>>();
+                        new LinkedList<>();
 
                 for(CommonHFSAttributesLeafRecord attributeRecord :
                         attributesFile.listAttributeRecords(getCatalogNodeID()))
@@ -94,11 +93,10 @@ public abstract class HFSCommonFSEntry extends BasicFSEntry {
                     }
                     else {
                         LinkedList<CommonHFSAttributesLeafRecord> bucket =
-                                new LinkedList<CommonHFSAttributesLeafRecord>();
+                                new LinkedList<>();
                         bucket.add(attributeRecord);
 
-                        p = new Pair<char[],
-                                LinkedList<CommonHFSAttributesLeafRecord>>(
+                        p = new Pair<>(
                                 attributeRecord.getKey().getAttrName(), bucket);
                         attributeBucketList.add(p);
                     }
@@ -129,7 +127,7 @@ public abstract class HFSCommonFSEntry extends BasicFSEntry {
 
     /* @Override */
     public FSFork[] getAllForks() {
-        LinkedList<FSFork> forkList = new LinkedList<FSFork>();
+        LinkedList<FSFork> forkList = new LinkedList<>();
 
         fillForks(forkList);
 

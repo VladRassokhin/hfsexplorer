@@ -62,7 +62,7 @@ public enum FileSystemMajorType {
      * */
 
     private final LinkedList<Class<? extends FileSystemHandlerFactory>> factoryClasses =
-            new LinkedList<Class<? extends FileSystemHandlerFactory>>();
+            new LinkedList<>();
 
     /**
      * Creates a FileSystemMajorType with no file system handler implementations
@@ -99,7 +99,7 @@ public enum FileSystemMajorType {
      * @return all registered factory classes for this type.
      */
     public List<Class<? extends FileSystemHandlerFactory>> getFactoryClasses() {
-        return new ArrayList<Class<? extends FileSystemHandlerFactory>>(factoryClasses);
+        return new ArrayList<>(factoryClasses);
     }
 
     /**

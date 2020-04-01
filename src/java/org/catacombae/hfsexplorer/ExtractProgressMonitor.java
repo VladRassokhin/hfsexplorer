@@ -48,7 +48,7 @@ public interface ExtractProgressMonitor extends ProgressMonitor {
 
     public static class ExtractProperties {
         private final LinkedList<ExtractPropertiesListener> listeners =
-                new LinkedList<ExtractPropertiesListener>();
+                new LinkedList<>();
         private volatile CreateDirectoryFailedAction createDirAction = CreateDirectoryFailedAction.PROMPT_USER;
         private volatile CreateFileFailedAction createFileAction = CreateFileFailedAction.PROMPT_USER;
         private volatile DirectoryExistsAction dirExistsAction = DirectoryExistsAction.PROMPT_USER;

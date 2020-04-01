@@ -111,7 +111,7 @@ public class AttributesFile
 
     public String[] listAttributeNames(final CommonHFSCatalogNodeID nodeID)
     {
-        final LinkedList<String> list = new LinkedList<String>();
+        final LinkedList<String> list = new LinkedList<>();
 
         listAttributeNames(nodeID, list);
 
@@ -122,7 +122,7 @@ public class AttributesFile
             LinkedList<String> list)
     {
         final LinkedList<CommonHFSAttributesLeafRecord> recordList =
-                new LinkedList<CommonHFSAttributesLeafRecord>();
+                new LinkedList<>();
 
         listAttributeRecords(nodeID, recordList);
 
@@ -138,7 +138,7 @@ public class AttributesFile
             final CommonHFSCatalogNodeID nodeID)
     {
         final LinkedList<CommonHFSAttributesLeafRecord> list =
-                new LinkedList<CommonHFSAttributesLeafRecord>();
+                new LinkedList<>();
 
         listAttributeRecords(nodeID, list);
 
@@ -182,8 +182,8 @@ public class AttributesFile
             CommonHFSAttributesIndexNode indexNode =
                     (CommonHFSAttributesIndexNode) curNode;
             LinkedList<CommonBTIndexRecord<CommonHFSAttributesKey>> recList =
-                    new LinkedList<CommonBTIndexRecord<CommonHFSAttributesKey>>
-                    ();
+                    new LinkedList<>
+                            ();
 
             /* Search for all keys in index node between search key (inclusive)
              * and end key (exclusive). */

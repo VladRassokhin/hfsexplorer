@@ -233,14 +233,14 @@ class HFSPlusJournal extends Journal {
         }
 
         final LinkedList<Transaction> pendingTransactionList =
-                new LinkedList<Transaction>();
+                new LinkedList<>();
         final LinkedList<BlockList> curBlockListList =
-                new LinkedList<BlockList>();
+                new LinkedList<>();
         final LinkedList<BlockInfo> curBlockInfoList =
-                new LinkedList<BlockInfo>();
+                new LinkedList<>();
 
         ObjectContainer<Boolean> wrappedAround =
-                new ObjectContainer<Boolean>(false);
+                new ObjectContainer<>(false);
         byte[] tmpData = new byte[Math.max(BlockListHeader.length(),
                 BlockInfo.length())];
 
@@ -293,7 +293,7 @@ class HFSPlusJournal extends Journal {
 
             curBytesRead += curReserved.length;
 
-            LinkedList<byte[]> curBlockDataList = new LinkedList<byte[]>();
+            LinkedList<byte[]> curBlockDataList = new LinkedList<>();
             for(Iterator<BlockInfo> it = curBlockInfoList.iterator();
                 it.hasNext();)
             {

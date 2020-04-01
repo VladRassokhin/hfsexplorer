@@ -43,7 +43,7 @@ public class EBRPartitionSystem implements PartitionSystem {
         psStream.seek(curOffset);
         psStream.readFully(tempBuffer);
 
-        LinkedList<ExtendedBootRecord> recordList = new LinkedList<ExtendedBootRecord>();
+        LinkedList<ExtendedBootRecord> recordList = new LinkedList<>();
         ExtendedBootRecord ebr;
         while((ebr = new ExtendedBootRecord(tempBuffer, 0, ebrPartitionOffset, curOffset, sectorSize)).isValid()) {
             //System.err.println("EBR partition " + recordList.size() + ":");

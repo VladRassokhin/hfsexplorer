@@ -30,11 +30,11 @@ public abstract class CommonBTIndexRecord <K extends CommonBTKey<K>>
     protected final byte[] index = new byte[4];
 
     public static <K extends CommonBTKey<K>> CommonBTIndexRecord<K> createHFS(K key, byte[] data, int offset) {
-        return new HFSImplementation<K>(key, data, offset);
+        return new HFSImplementation<>(key, data, offset);
     }
 
     public static <K extends CommonBTKey<K>> CommonBTIndexRecord<K> createHFSPlus(K key, byte[] data, int offset) {
-        return new HFSPlusImplementation<K>(key, data, offset);
+        return new HFSPlusImplementation<>(key, data, offset);
     }
 
     protected CommonBTIndexRecord(K key, byte[] data, int offset) {

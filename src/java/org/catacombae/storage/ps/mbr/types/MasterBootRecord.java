@@ -168,7 +168,7 @@ public class MasterBootRecord {
 
     public MBRPartition[] getUsedPartitionEntries() {
         final LinkedList<MBRPartition> tempList =
-                new LinkedList<MBRPartition>();
+				new LinkedList<>();
 
 	tempList.clear();
 	for(MBRPartition mp : getPartitions()) {

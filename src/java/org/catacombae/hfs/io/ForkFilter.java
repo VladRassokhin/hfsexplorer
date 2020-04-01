@@ -185,8 +185,8 @@ public class ForkFilter implements ReadableRandomAccessStream {
 
         this.forkLength = forkLength;
         this.extentDescriptors =
-                new ArrayList<CommonHFSExtentDescriptor>(Arrays.asList(
-                initialExtents));
+                new ArrayList<>(Arrays.asList(
+                        initialExtents));
         this.overflowExtentsStore = overflowExtentsStore;
         this.sourceFile = sourceFile;
         this.fsOffset = fsOffset;

@@ -72,7 +72,7 @@ public class HFSOriginalVolume extends HFSVolume {
                     ").");
         }
 
-        this.stringCodec = new MutableStringCodec<CharsetStringCodec>(
+        this.stringCodec = new MutableStringCodec<>(
                 new CharsetStringCodec(encodingName));
 
         this.allocationFile = createAllocationFile();

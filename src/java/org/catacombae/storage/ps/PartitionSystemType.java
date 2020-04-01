@@ -54,7 +54,7 @@ public enum PartitionSystemType {
     private final PartitionSystemType[] overriddenPartitionSystems;
 
     private LinkedList<Class<? extends PartitionSystemHandlerFactory>> factoryClasses =
-            new LinkedList<Class<? extends PartitionSystemHandlerFactory>>();
+            new LinkedList<>();
 
     private PartitionSystemType(boolean pIsTopLevelCapable, String longName,
             PartitionSystemType... overriddenPartitionSystems)
@@ -128,7 +128,7 @@ public enum PartitionSystemType {
      * @return all registered factory classes for this type.
      */
     public List<Class<? extends PartitionSystemHandlerFactory>> getFactoryClasses() {
-        return new ArrayList<Class<? extends PartitionSystemHandlerFactory>>(factoryClasses);
+        return new ArrayList<>(factoryClasses);
     }
 
     /**

@@ -247,7 +247,7 @@ public class Java7Util {
             return;
         }
 
-        HashSet<Object> perms = new HashSet<Object>();
+        HashSet<Object> perms = new HashSet<>();
 
         if(ownerRead) {
             Field curField = posixFilePermissionClass.getField("OWNER_READ");

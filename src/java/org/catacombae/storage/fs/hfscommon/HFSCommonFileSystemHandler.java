@@ -183,7 +183,7 @@ public abstract class HFSCommonFileSystemHandler extends FileSystemHandler {
                 // Reset visited list before usage if this is the first time
                 if(curVisitedList == null) {
                     if(visitedList == null)
-                        visitedList = new LinkedList<String[]>();
+                        visitedList = new LinkedList<>();
                     else
                         visitedList.clear();
                     curVisitedList = visitedList;
@@ -414,7 +414,7 @@ public abstract class HFSCommonFileSystemHandler extends FileSystemHandler {
 
     String[] listNames(CommonHFSCatalogFolderRecord folderRecord) {
         CommonHFSCatalogLeafRecord[] subRecords = view.getCatalogFile().listRecords(folderRecord);
-        LinkedList<String> result = new LinkedList<String>();
+        LinkedList<String> result = new LinkedList<>();
         for(int i = 0; i < subRecords.length; ++i) {
             CommonHFSCatalogLeafRecord curRecord = subRecords[i];
 
@@ -426,7 +426,7 @@ public abstract class HFSCommonFileSystemHandler extends FileSystemHandler {
 
     FSEntry[] listFSEntries(CommonHFSCatalogFolderRecord folderRecord) {
         CommonHFSCatalogLeafRecord[] subRecords = view.getCatalogFile().listRecords(folderRecord);
-        LinkedList<FSEntry> result = new LinkedList<FSEntry>();
+        LinkedList<FSEntry> result = new LinkedList<>();
         for(int i = 0; i < subRecords.length; ++i) {
             CommonHFSCatalogLeafRecord curRecord = subRecords[i];
 

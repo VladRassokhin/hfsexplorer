@@ -136,7 +136,7 @@ public class MBRPartitionTable implements PartitionSystem, PrintableStruct {
     }
 
     public Partition[] getUsedPartitionEntries() {
-        LinkedList<Partition> tempList = new LinkedList<Partition>();
+        LinkedList<Partition> tempList = new LinkedList<>();
         for(Partition p : masterBootRecord.getUsedPartitionEntries())
             tempList.addLast(p);
 
@@ -168,7 +168,7 @@ public class MBRPartitionTable implements PartitionSystem, PrintableStruct {
     }
 
     public Partition[] getPartitionEntries() {
-        LinkedList<Partition> tempList = new LinkedList<Partition>();
+        LinkedList<Partition> tempList = new LinkedList<>();
         for(Partition p : masterBootRecord.getPartitionEntries())
             tempList.addLast(p);
 
