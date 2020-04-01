@@ -30,7 +30,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>org.catacombae.hfsexplorer.JarMain</mainClass>
+                                    <mainClass>org.catacombae.hfsexplorer.HFSExplorer</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -51,29 +51,7 @@
         <dependency>
             <groupId>com.github.VladRassokhin</groupId>
             <artifactId>dmgextractor</artifactId>
-            <version>master</version>
+            <version>lzfse-1</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.github.umjammer</groupId>-->
-<!--            <artifactId>catacombaeframework</artifactId>-->
-<!--            <version>0.0.1</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>net.iharder</groupId>-->
-<!--            <artifactId>base64</artifactId>-->
-<!--            <version>2.3.9</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-compress</artifactId>-->
-<!--            <version>1.20</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.github.horrorho</groupId>-->
-<!--            <artifactId>RagingMoose</artifactId>-->
-<!--            <version>master</version>-->
-<!--        </dependency>-->
-
-
     </dependencies>
 </project>
