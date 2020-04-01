@@ -312,7 +312,7 @@ public abstract class FileSystemHandler {
 
             //log(prefix + "  gtpfpp:   Result: " + linkTarget);
 
-            if(linkTarget != null && linkTarget instanceof FSLink) {
+            if(linkTarget instanceof FSLink) {
                 curLink = (FSLink) linkTarget;
                 curLinkPath = linkTargetPath;
                 visitedLinks.add(curLinkPath);

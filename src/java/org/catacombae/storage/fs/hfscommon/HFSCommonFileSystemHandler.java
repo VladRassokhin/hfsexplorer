@@ -17,8 +17,8 @@
 
 package org.catacombae.storage.fs.hfscommon;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.CharBuffer;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import org.catacombae.hfs.UnicodeNormalizationToolkit;
 import org.catacombae.util.Util;
@@ -87,7 +87,7 @@ public abstract class HFSCommonFileSystemHandler extends FileSystemHandler {
         for(String nextFolderName : path) {
             CommonHFSCatalogLeafRecord subRecord = getRecord(curFolder, nextFolderName);
 
-            if(subRecord != null && subRecord instanceof CommonHFSCatalogFolderRecord)
+            if(subRecord instanceof CommonHFSCatalogFolderRecord)
                 curFolder = (CommonHFSCatalogFolderRecord) subRecord;
             else
                 return null; // Invalid path, no matching child folder was found.
@@ -375,23 +375,19 @@ public abstract class HFSCommonFileSystemHandler extends FileSystemHandler {
      * @return the pathname components of the HFS+ POSIX UTF-8 pathname.
      */
     public String[] splitPOSIXUTF8Path(byte[] path, int offset, int length) {
-        try {
-            String s = new String(path, offset, length, "UTF-8");
-            String[] res = s.split("/");
+        String s = new String(path, offset, length, StandardCharsets.UTF_8);
+        String[] res = s.split("/");
 
-            if(!posixNames) {
-                /* As per the MacOS <-> POSIX translation semantics, all POSIX
-                 * ':' characters are really '/' characters in the MacOS
-                 * world. */
-                for(int i = 0; i < res.length; ++i) {
-                    res[i] = posixWrap(res[i]);
-                }
+        if(!posixNames) {
+            /* As per the MacOS <-> POSIX translation semantics, all POSIX
+             * ':' characters are really '/' characters in the MacOS
+             * world. */
+            for(int i = 0; i < res.length; ++i) {
+                res[i] = posixWrap(res[i]);
             }
-
-            return res;
-        } catch(UnsupportedEncodingException e) {
-            throw new RuntimeException("REALLY UNEXPECTED: Could not decode UTF-8!", e);
         }
+
+        return res;
     }
 
     protected ReadableRandomAccessStream getReadableDataForkStream(

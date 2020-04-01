@@ -92,7 +92,7 @@ public class HFSCommonFSLink extends HFSCommonAbstractFile implements FSLink {
         if(targetPath != null) {
             //parentFileSystem.log(prefix + "getLinkTarget(): got true path \"" + Util.concatenateStrings(targetPath, "/") + "\"");
             res = fsHandler.getEntry(targetPath);
-            if(res != null && res instanceof FSLink) {
+            if(res instanceof FSLink) {
                 //String[] targetParentDir = Util.arrayCopy(targetPath, 0, new String[targetPath.length-1], 0, targetPath.length-1);
                 //System.err.println("getLinkTarget(): trying to resolve inner link using link path \"" + Util.concatenateStrings(targetPath, "/") + "\"");
                 res = fsHandler.resolveLinks(targetPath, (FSLink)res);
@@ -113,7 +113,7 @@ public class HFSCommonFSLink extends HFSCommonAbstractFile implements FSLink {
                 }
             }
 
-            if(res != null && res instanceof FSLink)
+            if(res instanceof FSLink)
                 throw new RuntimeException("res still instanceof FSLink!");
         }
         else {

@@ -22,6 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import org.catacombae.io.ReadableFileStream;
@@ -133,7 +134,7 @@ public class HFSExplorer {
 		isoRaf.readFully(currentBlock);
 		signature[0] = currentBlock[0];
 		signature[1] = currentBlock[1];
-		if(new String(signature, "ASCII").equals("PM")) {
+		if(new String(signature, StandardCharsets.US_ASCII).equals("PM")) {
 		    print("Partition " + i + ": ");
 		    APMPartition p = new APMPartition(currentBlock, 0, 0x200);
 		    partitions.add(p);
