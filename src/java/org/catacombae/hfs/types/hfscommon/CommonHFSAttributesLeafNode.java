@@ -33,7 +33,7 @@ public abstract class CommonHFSAttributesLeafNode
 
     public CommonHFSAttributesLeafRecord[] getLeafRecords() {
         return ic.records.toArray(
-                new CommonHFSAttributesLeafRecord[ic.records.size()]);
+                new CommonHFSAttributesLeafRecord[0]);
     }
 
     public static CommonHFSAttributesLeafNode createHFSPlus(byte[] data,

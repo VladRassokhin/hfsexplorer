@@ -219,7 +219,7 @@ public class ExtentsOverflowFile
             }
             //System.err.println("  Finished reading extents... (currentblock: " + currentBlock + " total: " + forkData.getTotalBlocks() + ")");
 
-            result = resultList.toArray(new CommonHFSExtentDescriptor[resultList.size()]);
+            result = resultList.toArray(new CommonHFSExtentDescriptor[0]);
         }
         return result;
     }
@@ -263,7 +263,7 @@ public class ExtentsOverflowFile
             }
         }
 
-	return descTmp.toArray(new CommonHFSExtentDescriptor[descTmp.size()]);
+	return descTmp.toArray(new CommonHFSExtentDescriptor[0]);
     }
 
     public CommonHFSExtentDescriptor[] getAllDataExtentDescriptors(

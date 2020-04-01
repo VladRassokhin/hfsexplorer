@@ -147,7 +147,7 @@ public class MBRPartitionTable implements PartitionSystem, PrintableStruct {
             }
 	}
 
-        return tempList.toArray(new Partition[tempList.size()]);
+        return tempList.toArray(new Partition[0]);
     }
 
     public Partition getPartitionEntry(int index) {
@@ -179,7 +179,7 @@ public class MBRPartitionTable implements PartitionSystem, PrintableStruct {
             }
 	}
 
-        return tempList.toArray(new Partition[tempList.size()]);
+        return tempList.toArray(new Partition[0]);
     }
 
 

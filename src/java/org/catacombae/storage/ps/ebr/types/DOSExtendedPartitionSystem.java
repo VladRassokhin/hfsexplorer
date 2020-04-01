@@ -61,7 +61,7 @@ public class DOSExtendedPartitionSystem implements PartitionSystem {
             // ebr.print(System.err, " ");
         }
 
-        this.extendedBootRecords = recordList.toArray(new ExtendedBootRecord[recordList.size()]);
+        this.extendedBootRecords = recordList.toArray(new ExtendedBootRecord[0]);
     }
 
     public boolean isValid() {

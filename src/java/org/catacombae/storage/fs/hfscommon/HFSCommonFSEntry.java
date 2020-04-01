@@ -110,8 +110,7 @@ public abstract class HFSCommonFSEntry extends BasicFSEntry {
 
                     tmpAttributeForkList.add(new HFSCommonAttributeFork(this,
                             recordList.toArray(
-                            new CommonHFSAttributesLeafRecord[recordList.
-                            size()])));
+                                    new CommonHFSAttributesLeafRecord[0])));
                 }
             }
 
@@ -131,7 +130,7 @@ public abstract class HFSCommonFSEntry extends BasicFSEntry {
 
         fillForks(forkList);
 
-        return forkList.toArray(new FSFork[forkList.size()]);
+        return forkList.toArray(new FSFork[0]);
     }
 
     protected void fillForks(List<FSFork> forkList) {

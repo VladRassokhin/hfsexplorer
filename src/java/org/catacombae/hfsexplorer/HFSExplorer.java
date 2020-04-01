@@ -92,7 +92,7 @@ public class HFSExplorer {
 	}
 
 	public String[] getArgs() {
-	    return argsList.toArray(new String[argsList.size()]);
+	    return argsList.toArray(new String[0]);
 	}
 
 	public String getFilename() { return argsList.getLast(); }

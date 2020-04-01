@@ -191,8 +191,7 @@ public class HFSCommonAttributeFork implements FSFork {
 
             stream = new ForkFilter(
                     attributesForkData.getTheFork().getLogicalSize(),
-                    allExtents.toArray(new CommonHFSExtentDescriptor[allExtents.
-                    size()]),
+                    allExtents.toArray(new CommonHFSExtentDescriptor[0]),
                     parent.getFileSystemHandler().getFSView().createFSStream(),
                     0,
                     parent.getFileSystemHandler().getFSView().getVolumeHeader().

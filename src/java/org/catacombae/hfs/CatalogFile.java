@@ -386,7 +386,7 @@ public class CatalogFile
 		for(CommonHFSCatalogLeafRecord curRes : partResult)
 		    results.addLast(curRes);
 	    }
-	    return results.toArray(new CommonHFSCatalogLeafRecord[results.size()]);
+	    return results.toArray(new CommonHFSCatalogLeafRecord[0]);
 	}
 	else if(nodeDescriptor.getNodeType() == NodeType.LEAF) {
 	    CommonHFSCatalogLeafNode currentNode =
@@ -424,7 +424,7 @@ public class CatalogFile
 	    if(curRec.getKey().getParentID().toLong() == nodeID.toLong())
 		children.addLast(curRec);
 	}
-	return children.toArray(new CommonHFSCatalogLeafRecord[children.size()]);
+	return children.toArray(new CommonHFSCatalogLeafRecord[0]);
     }
 
     /*

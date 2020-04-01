@@ -30,7 +30,7 @@ public abstract class CommonHFSCatalogLeafNode
     }
 
     public CommonHFSCatalogLeafRecord[] getLeafRecords() {
-        return ic.records.toArray(new CommonHFSCatalogLeafRecord[ic.records.size()]);
+        return ic.records.toArray(new CommonHFSCatalogLeafRecord[0]);
     }
 
     public static CommonHFSCatalogLeafNode createHFSPlus(byte[] data, int offset, int nodeSize) {

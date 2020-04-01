@@ -323,7 +323,7 @@ class HFSPlusJournal extends Journal {
 
             BlockList curBlockList = new BlockList(curHeader,
                     curBlockInfoList.toArray(
-                    new BlockInfo[curBlockInfoList.size()]),
+                            new BlockInfo[0]),
                     curReserved,
                     curBlockDataList.toArray(
                     new byte[curBlockDataList.size()][]));
@@ -332,17 +332,17 @@ class HFSPlusJournal extends Journal {
             if(curBlockList.getBlockInfo(0).getNext() == 0) {
                 pendingTransactionList.add(new Transaction(
                         curBlockListList.toArray(
-                        new BlockList[curBlockListList.size()])));
+                                new BlockList[0])));
                 curBlockListList.clear();
             }
         }
 
         if(curBlockListList.size() != 0) {
             pendingTransactionList.add(new Transaction(curBlockListList.toArray(
-                    new BlockList[curBlockListList.size()])));
+                    new BlockList[0])));
         }
 
         return pendingTransactionList.toArray(
-                new Transaction[pendingTransactionList.size()]);
+                new Transaction[0]);
     }
 }

@@ -421,7 +421,7 @@ public abstract class HFSCommonFileSystemHandler extends FileSystemHandler {
             if(!shouldHide(curRecord))
                 result.add(getProperNodeName(curRecord));
         }
-        return result.toArray(new String[result.size()]);
+        return result.toArray(new String[0]);
     }
 
     FSEntry[] listFSEntries(CommonHFSCatalogFolderRecord folderRecord) {
@@ -441,7 +441,7 @@ public abstract class HFSCommonFileSystemHandler extends FileSystemHandler {
             if(curEntry != null)
                 result.addLast(curEntry);
         }
-        return result.toArray(new FSEntry[result.size()]);
+        return result.toArray(new FSEntry[0]);
     }
 
     HFSCommonFSFolder lookupParentFolder(CommonHFSCatalogLeafRecord childRecord) {

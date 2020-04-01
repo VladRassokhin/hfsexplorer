@@ -220,7 +220,7 @@ public class GUIDPartitionTable implements PartitionSystem, StructElements {
             if(ge.isUsed())
                 tempList.addLast(ge);
         }
-        return tempList.toArray(new GPTEntry[tempList.size()]);
+        return tempList.toArray(new GPTEntry[0]);
     }
 
     public int getUsedPartitionCount() {

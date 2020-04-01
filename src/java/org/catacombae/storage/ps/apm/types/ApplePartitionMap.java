@@ -81,7 +81,7 @@ public class ApplePartitionMap implements PartitionSystem {
 
             //++partitionIndex;
         }
-        partitions = partitionList.toArray(new APMPartition[partitionList.size()]);
+        partitions = partitionList.toArray(new APMPartition[0]);
     }
 
     public ApplePartitionMap(byte[] data, int off, int blockSize) {

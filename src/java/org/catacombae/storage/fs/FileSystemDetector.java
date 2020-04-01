@@ -70,6 +70,6 @@ public class FileSystemDetector {
             }
         }
 
-        return result.toArray(new FileSystemMajorType[result.size()]);
+        return result.toArray(new FileSystemMajorType[0]);
     }
 }

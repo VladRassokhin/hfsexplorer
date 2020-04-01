@@ -34,7 +34,7 @@ public abstract class CommonHFSExtentLeafNode
     }
 
     public CommonHFSExtentLeafRecord[] getLeafRecords() {
-        return ic.records.toArray(new CommonHFSExtentLeafRecord[ic.records.size()]);
+        return ic.records.toArray(new CommonHFSExtentLeafRecord[0]);
     }
 
     public static CommonHFSExtentLeafNode createHFS(byte[] data, int offset, int nodeSize) {

@@ -175,7 +175,7 @@ public class MasterBootRecord {
 	    if(mp.isUsed()) tempList.addLast(mp);
 	    //else break; // we don't check the later ones
 	}
-        return tempList.toArray(new MBRPartition[tempList.size()]);
+        return tempList.toArray(new MBRPartition[0]);
     }
 
 

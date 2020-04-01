@@ -142,6 +142,6 @@ public class PartitionSystemDetector {
             }
         }
 
-        return result.toArray(new PartitionSystemType[result.size()]);
+        return result.toArray(new PartitionSystemType[0]);
     }
 }

@@ -164,7 +164,7 @@ public abstract class FileSystemHandler {
             //log(prefix + "  gtpfpp: curPath=\"" + Util.concatenateStrings(curPath, "\", \"") + "\"");
             if(curEntry2 == null) {
                 if(curPath == null)
-                    curPath = pathStack.toArray(new String[pathStack.size()]);
+                    curPath = pathStack.toArray(new String[0]);
                 curEntry2 = getEntry(curPath);
                 //log(prefix + "  gtpfpp: curEntry2=" + curEntry2);
             }
@@ -182,7 +182,7 @@ public abstract class FileSystemHandler {
                     visitedLinks.clear();
 
                 if(curPath == null)
-                    curPath = pathStack.toArray(new String[pathStack.size()]);
+                    curPath = pathStack.toArray(new String[0]);
                 FSEntry linkTarget = resolveLinks(curPath, curLink, visitedLinks);
 
                 //log(prefix + "  gtpfpp: Before test.");
@@ -240,7 +240,7 @@ public abstract class FileSystemHandler {
             }
         }
 
-        final String[] res = pathStack.toArray(new String[pathStack.size()]);
+        final String[] res = pathStack.toArray(new String[0]);
         //log(prefix + "  gtpfpp: Returning " + Util.concatenateStrings(res, "/"));
         return res;
         /*

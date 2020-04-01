@@ -71,7 +71,7 @@ public class EBRPartitionSystem implements PartitionSystem {
             throw new RuntimeException("Invalid extended partition table at index " +
                     recordList.size() + ".");
         else
-            this.bootRecords = recordList.toArray(new ExtendedBootRecord[recordList.size()]);
+            this.bootRecords = recordList.toArray(new ExtendedBootRecord[0]);
     }
 
     public boolean isValid() {

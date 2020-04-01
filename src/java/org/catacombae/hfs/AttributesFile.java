@@ -115,7 +115,7 @@ public class AttributesFile
 
         listAttributeNames(nodeID, list);
 
-        return list.toArray(new String[list.size()]);
+        return list.toArray(new String[0]);
     }
 
     public void listAttributeNames(final CommonHFSCatalogNodeID nodeID,
@@ -142,7 +142,7 @@ public class AttributesFile
 
         listAttributeRecords(nodeID, list);
 
-        return list.toArray(new CommonHFSAttributesLeafRecord[list.size()]);
+        return list.toArray(new CommonHFSAttributesLeafRecord[0]);
     }
 
     public void listAttributeRecords(final CommonHFSCatalogNodeID nodeID,
